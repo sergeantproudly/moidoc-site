@@ -1,0 +1,7 @@
+node_modules/
+robots.txt
+.htaccess
+error.log
+package.json
+package-lock.json
+sitemap.xml

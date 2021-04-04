@@ -1,0 +1,19 @@
+<div id="bl-feedback"<%CLASS%>>
+            <div class="holder">
+                <h2 class="animated fadeInUpSmall wow"><%TITLE%></h2>
+                <%TEXT%>
+
+                <form action="/ajax--act-Feedback/" method="post">
+                    <div class="line">
+                        <input type="text" name="name" maxlength="255" placeholder="Name">
+                        <input type="email" name="email" maxlength="255" placeholder="E-mail">
+                        <input type="tel" name="tel" maxlength="255" placeholder="Phone" data-multimask="true">
+                    </div>
+                    <div class="line">
+                        <textarea name="text" placeholder="Tell us about detail of your project"></textarea>                        
+                    </div>
+                    <input type="hidden" name="code" value="<%CODE%>">
+                    <div class="btn-line"><input type="submit" name="submit_btn" value="Send" class="btn"></div>                    
+                </form>
+            </div>
+        </div>
