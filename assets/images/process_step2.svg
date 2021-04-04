@@ -1,9 +1,1 @@
-<svg width="349" height="349" viewBox="0 0 349 349" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="174.5" cy="174.5" r="174.5" fill="#FED141"/>
-<path d="M135 283.833C135 305.43 152.495 323 174 323C195.505 323 213 305.43 213 283.833V276H135V283.833Z" fill="black"/>
-<rect x="135" y="96" width="78" height="169" fill="white"/>
-<path d="M193.194 58.4583H155L173.242 22L193.194 58.4583Z" fill="black"/>
-<path d="M173.5 26L212.5 95V269C213.5 286.5 207.1 321 173.5 319" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M157 96V245.5" stroke="black" stroke-width="5"/>
-<path d="M188 96V245.5" stroke="black" stroke-width="5"/>
-</svg>
+<svg width="349" height="349" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="174.5" cy="174.5" r="174.5" fill="#FED141"/><path d="M135 283.833C135 305.43 152.495 323 174 323s39-17.57 39-39.167V276h-78v7.833z" fill="#000"/><path fill="#fff" d="M135 96h78v169h-78z"/><path d="M193.194 58.458H155L173.242 22l19.952 36.458z" fill="#000"/><path d="M173.5 26l39 69v174c1 17.5-5.4 52-39 50" stroke="#000" stroke-width="5" stroke-linecap="round"/><path d="M157 96v149.5M188 96v149.5" stroke="#000" stroke-width="5"/></svg>

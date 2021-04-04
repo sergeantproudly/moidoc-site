@@ -27,7 +27,7 @@ const jsFiles = [
 	'./src/js/settings.js',
 	'./src/js/common.js',
 	'./src/js/scripts.js',
-	'./src/js/cookies_notice.js'
+	/*'./src/js/cookies_notice.js'*/
 ];
 
 sass.compiler = require('node-sass');
