@@ -28,22 +28,10 @@ class sitemap extends krn_abstract{
 			}
 		}
 
-		// services
-		$items = $this->db->getAll('SELECT Code, LastModTime FROM services ORDER BY IF(`Order`,-1000/`Order`,0)');
+		// projects
+		$items = $this->db->getAll('SELECT Code FROM projects ORDER BY IF(`Order`,-1000/`Order`,0)');
 		foreach ($items as $item) {
-			$pages['services/' . $item['Code']] = $item['LastModTime'];
-		}
-
-		// news
-		$items = $this->db->getAll('SELECT Code, LastModTime FROM news ORDER BY Date DESC');
-		foreach ($items as $item) {
-			$pages['articles/' . $item['Code']] = $item['LastModTime'];
-		}
-		
-		// works
-		$items = $this->db->getAll('SELECT Code, LastModTime FROM works ORDER BY IF(`Order`,-100/`Order`,0)');
-		foreach ($items as $item) {
-			$pages['projects/' . $item['Code']] = $item['LastModTime'];
+			$pages['services/' . $item['Code']] = date();
 		}
 		return $pages;
 	}
