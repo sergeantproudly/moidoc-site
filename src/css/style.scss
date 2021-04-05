@@ -5648,6 +5648,26 @@ footer {
 		}
 	}
 
+	&.project6 {
+		.wrapper {
+			.text {
+				max-width: 53vw;
+
+				@media (min-width: $adaptive-width-desktop-holded) {
+					max-width: vwToHoldedPx(53);
+				}
+
+				@media (max-width: $adaptive-width-tablet) {
+					max-width: 65vw;
+				}
+
+				@media (max-width: $adaptive-width-mobile) {
+					max-width: none;
+				}
+			}
+		}
+	}
+
 	&.project7 {
 		.wrapper {
 			.text {
@@ -5655,6 +5675,10 @@ footer {
 
 				@media (min-width: $adaptive-width-desktop-holded) {
 					max-width: vwToHoldedPx(68);
+				}
+
+				@media (max-width: $adaptive-width-mobile) {
+					max-width: none;
 				}
 			}
 		}
