@@ -207,14 +207,15 @@ header {
 
 		.close {
 			position: absolute;
-			top: 13px;
-			right: 14px;
+			top: 1.8625vw;
+			right: 2vw;
 			display: none;
 			opacity: 0;
-			width: 20px;
-			height: 20px;
-			padding: 10px;
+			width: 6.25vw;
+			height: 6.25vw;
+			padding: 3.125vw;
 			background: url('../images/ico_close.svg') no-repeat center;
+			background-size: 6.25vw 6.25vw;
 			cursor: pointer;
 			z-index: 6;
 			@include sizing(c);
@@ -234,15 +235,15 @@ header {
 	            flex-direction: column;
 	            justify-content: flex-end;
 	            height: auto;
-	            padding: 46px 44px 44px;
+	            padding: 14.375vw 13.75vw 13.75vw;
 	            min-height: 100vh;
 	            background: #F3F3F3;
-	            width: 256px;
+	            width: 80vw;
 	            z-index: 5;
 	            @include transition(background-color, 300ms);
 
 	            &.iphone {
-	            	padding: 46px 44px 107px;
+	            	padding: 14.375vw 13.75vw 33.4375vw;
 	            }
 
 	            ul {
@@ -251,10 +252,10 @@ header {
 
 	            	& > li {
 	            		display: block;
-	            		font-size: 16px;
-	            		padding: 13px 0;
+	            		font-size: 5vw;
+	            		padding: 4.0625vw 0;
 	            		border-top: 1px solid #D4D4D4;
-	            		margin: 0 0 3px;
+	            		margin: 0 0 0.9375vw;
 
 	            		&:first-child {
 	            			border-top: 0;
@@ -303,9 +304,9 @@ header {
 			position: static;
 			top: auto;
 			right: auto;
-			width: 164px;
-			height: 42px;
-			font-size: 16px;
+			width: 51.25vw;
+			height: 13.125vw;
+			font-size: 5vw;
 			z-index: 5;
 		}
 	}
@@ -5885,10 +5886,13 @@ footer {
 	}
 
 	.text {
+		font-size: 1.82292vw;
+		line-height: 1.286;
 		max-width: 65.729167vw;
 		margin: 0 auto 5.20833vw;
 
 		@media (min-width: $adaptive-width-desktop-holded) {
+			font-size: 35px;
 			max-width: vwToHoldedPx(65.729167);
 			margin: 0 auto vwToHoldedPx(5.20833);
 		}
@@ -5912,10 +5916,10 @@ footer {
 	.line {
 		display: flex;
 		justify-content: space-between;
-		margin-bottom: 50px;
+		margin-bottom: 2.604167vw;
 
-		@media (max-width: $adaptive-width-tablet) {
-			margin-bottom: 20px;
+		@media (min-width: $adaptive-width-desktop-holded) {
+			margin-bottom: 50px;
 		}
 
 		@media (max-width: $adaptive-width-mobile) {
@@ -5930,10 +5934,22 @@ footer {
 			background-color: #fff;
 			border-color: #fff;
 			width: 32%;
+			font-size: 1.82292vw;
+
+			@media (min-width: $adaptive-width-desktop-holded) {
+				font-size: 35px;		
+			}
+
+			@media (max-width: $adaptive-width-tablet) {
+				font-size: 2.0833vw;
+				padding: 1.8229167vw 2.0833vw 1.6927083vw;
+			}
 
 			@media (max-width: $adaptive-width-mobile) {
 				width: 100%;
-				margin-bottom: 21px;
+				font-size: 5vw;
+				padding: 4.0625vw 4.375vw;
+				margin-bottom: 6.5625vw;
 			}
 
 			&:focus {
@@ -5945,15 +5961,24 @@ footer {
 			background-color: #fff;
 			border-color: #fff;
 			width: 100%;
-			height: 324px;
+			height: 16.875vw;
+			font-size: 1.82292vw;
+
+			@media (min-width: $adaptive-width-desktop-holded) {
+				height: 324px;		
+				font-size: 35px;		
+			}
 
 			@media (max-width: $adaptive-width-tablet) {
-				height: 115px;
+				font-size: 2.0833vw;
+				padding: 1.8229167vw 2.0833vw 1.6927083vw;
 			}
 
 			@media (max-width: $adaptive-width-mobile) {
-				height: 205px;
-				margin-bottom: 21px;
+				height: 16.67708vw;
+				font-size: 5vw;
+				padding: 4.8625vw 4.375vw 4.0625vw;
+				margin-bottom: 6.5625vw;
 			}
 
 			&:focus {
@@ -5993,23 +6018,26 @@ footer {
 
 		.btn {
 			text-transform: none;
-			font-size: 36px;
+			font-size: 1.875vw;
+			font-weight: 600;
 			width: 32%;
-			height: 112px;
+			height: 5.833vw;
 
-			@media (max-width: $adaptive-width-desktop-small) {
-				@include radius(10px);
+			@media (min-width: $adaptive-width-desktop-holded) {
+				font-size: 36px;
+				height: 112px;
 			}
 
 			@media (max-width: $adaptive-width-tablet) {
-				font-size: 16px;
-				height: 45px;
-				padding-top: 10px;				
+				font-size: 2.0833vw;
+				height: 5.859375vw;
+				padding-top: 1.3021vw;				
 			}
 
 			@media (max-width: $adaptive-width-mobile) {
 				font-size: 5.225vw;
 				height: 14.875vw;
+				padding-top: 3.5vw;
 				width: 100%;
 			}
 		}
