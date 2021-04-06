@@ -92,7 +92,7 @@ function clean() {
 	return del(['assets/*']);
 }
 
-//gulp.task('styles', styles);
+gulp.task('styles', styles);
 //gulp.task('scripts', scripts);
 gulp.task('images', images);
 gulp.task('watch', watch);
