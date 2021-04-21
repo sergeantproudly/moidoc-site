@@ -878,6 +878,18 @@ footer {
 			margin-bottom: 8.75vw;
 		}
 
+		.en & {
+			bottom: 3.69792vw;
+
+			@media (min-width: $adaptive-width-desktop-holded) {
+				bottom: vwToHoldedPx(3.69792);
+			}
+
+			@media (max-width: $adaptive-width-tablet) {
+				bottom: 2.994792vw;
+			}
+		}
+
 		& > li {
 			display: block;
 			font-size: 1.3542vw;
@@ -899,6 +911,18 @@ footer {
 				font-size: 4.5vw;
 				line-height: 1.71;
 				margin: 0 0 3.125vw;
+			}
+
+			.en & {
+				margin-bottom: 0.2vw;
+
+				@media (min-width: $adaptive-width-desktop-holded) {
+					margin-bottom: vwToHoldedPx(0.2);					
+				}
+
+				@media (max-width: $adaptive-width-mobile) {
+					margin: 0 0 3.125vw;
+				}
 			}
 
 			& > a {
@@ -1010,6 +1034,28 @@ footer {
 			font-size: 4.375vw;
 			line-height: 1.71;
 			margin-bottom: 10vw;
+		}
+
+		.en & {
+			font-size: 1.3542vw;
+			bottom: 3.8vw;
+			line-height: 1.9;
+
+			@media (min-width: $adaptive-width-desktop-holded) {
+				font-size: 26px;
+				bottom: vwToHoldedPx(3.8);
+			}
+
+			@media (max-width: $adaptive-width-tablet) {
+				font-size: 1.5vw;
+				bottom: 2.4739583vw;
+				width: 30vw;
+			}
+
+			@media (max-width: $adaptive-width-mobile) {
+				font-size: 4.375vw;
+				width: auto;
+			}
 		}
 	}
 
