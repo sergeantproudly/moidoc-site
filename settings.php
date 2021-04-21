@@ -39,5 +39,6 @@
    define ('ABS_PATH', $_SERVER['DOCUMENT_ROOT'].'/');
    define ('ROOT_PATH', $_SERVER['DOCUMENT_ROOT'].'/');
    define ('TEMP_DIR', 'mycms/uploads/temp/');
+   define ('EN_DIR', 'en/');
 
 ?>

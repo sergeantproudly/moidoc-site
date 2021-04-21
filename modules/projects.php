@@ -40,7 +40,7 @@ class projects extends krn_abstract {
 	function GetProject() {
 		$projects = $this->db->getCol('SELECT Code FROM projects ORDER BY IF(`Order`, -100/`Order`, 0)');
 
-		return strtr(LoadTemplate($this->code), array(
+		return strtr($this->lang->LoadTemplate($this->code), array(
 			'<%LINK1%>'				=> $projects[0] . '/',
 			'<%LINK2%>'				=> $projects[1] . '/',
 			'<%LINK3%>'				=> $projects[2] . '/',

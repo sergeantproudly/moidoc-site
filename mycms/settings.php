@@ -40,5 +40,6 @@
    define ('ABS_PATH', $_SERVER['DOCUMENT_ROOT'].'/mycms/');
    define ('ROOT_PATH', $_SERVER['DOCUMENT_ROOT'].'/');
    define ('ROOT_DIR', '../');
+   define ('EN_DIR', 'en/');
 
 ?>

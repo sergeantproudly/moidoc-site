@@ -13,6 +13,7 @@
 			global $Config;
 			global $Settings;
 			global $Routing;
+			global $Lang;
 			global $Site;
 			global $_LEVEL;
 			
@@ -24,6 +25,9 @@
 		   		'charset'	=> 'utf8'
 		 	));
 		 	$this->db = $Params['Db']['Link'];
+
+		 	krnLoadLib('lang');
+		 	$Lang = new Lang();
 
 			krnLoadLib('settings');
 		 	$Settings = new Settings();

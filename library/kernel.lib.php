@@ -72,7 +72,8 @@
 	
 	// загрузка страницы (основоного шаблона)
 	function krnLoadPage($templateName=''){
-		return LoadTemplate($templateName?$templateName:'base');
+		global $Lang;
+		return $Lang->LoadTemplate($templateName?$templateName:'base');
 	}
 	
 	// загрузка статической страницы

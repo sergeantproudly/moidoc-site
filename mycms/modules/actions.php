@@ -145,6 +145,9 @@ class actions extends krn_abstract{
 				if (file_exists(ROOT_PATH . 'templates/' . $oldRecord['Code'] . '.htm')) {
 					rename(ROOT_PATH . 'templates/' . $oldRecord['Code'] . '.htm', ROOT_PATH . 'templates/' . $code . '.htm');
 				}
+				if (file_exists(ROOT_PATH . 'templates/' . EN_DIR . $oldRecord['Code'] . '.htm')) {
+					rename(ROOT_PATH . 'templates/' . EN_DIR . $oldRecord['Code'] . '.htm', ROOT_PATH . 'templates/' . EN_DIR . $code . '.htm');
+				}
 			}			
 		}
 	}
