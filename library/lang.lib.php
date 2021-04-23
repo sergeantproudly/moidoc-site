@@ -22,14 +22,20 @@ class Lang {
 	}
 
 	public function DetectLang() {
-		$lang = $this->DetectLangByAcceptLanguage();
-		$this->lang = $lang;
+		$this->lang = $this->DetectLanguageByDomain();
 		if (!$_COOKIE['lang_selected_by_user']) {
+			$lang = $this->DetectLangByAcceptLanguage();
 			$checked = $this->CheckDomainByLang($lang);
 			if ($checked !== true) {
 				//__Redirect('https://' . $checked);
 			}
 		}
+	}
+
+	public function DetectLanguageByDomain() {
+		$domain = $_SERVER['HTTP_HOST'];
+		$k = array_search($domain, $this->domains);
+		return $this->langs[$k];
 	}
 
 	public function DetectLangByAcceptLanguage() {
