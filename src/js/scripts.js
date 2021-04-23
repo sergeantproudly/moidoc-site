@@ -216,20 +216,6 @@
 			}
 		});
 
-		// WELCOME DUCK
-		if ($('#bl-welcome').length) {
-			setTimeout(function() {
-				$('#bl-welcome>.holder').append('<div class="duck animated rubberBand wow"></div>');
-
-				$('#bl-welcome>.holder>.duck').click(function() {
-					$(this).removeClass('animated rubberBand wow');
-					setTimeout(function() {
-						$('#bl-welcome>.holder>.duck').addClass('animated rubberBand wow');
-					}, 50);
-				});
-			}, 750);
-		}
-
 		$(window).scroll();
 		$(window).resize();
 
@@ -254,6 +240,12 @@
 			} else {
 				_scrollTo(to);
 			}
+		});
+
+		// LANG LINKS
+		$('#mn-lang li>a').click(function(e) {
+			var selectedLang = $(this).attr('data-lang');
+			setCookie('lang', selectedLang);
 		});
 
 		// FEEDBACK FORM

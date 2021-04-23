@@ -12,12 +12,15 @@
 
 		private $db;
 		private $settings;
+		private $lang;
 		
 		public function __construct($params = []) {
 			global $Params;
 			global $Settings;
+			global $Lang;
 			$this->db = $Params['Db']['Link'];
 			$this->settings = $Settings;
+			$this->lang = $Lang;
 
 			$this->init($params);
 		}
@@ -49,7 +52,7 @@
 			$page = $Site->GetCurrentPage();
 
 			if (!$parentItemId) {
-				$this->items[$menuDb][0] = $items = $this->db->getAll('SELECT Id, Title, Link FROM ?n ORDER BY IF(`Order`,-1000/`Order`,0) ASC', $menuDb);
+				$this->items[$menuDb][0] = $items = $this->db->getAll('SELECT Id, Title, Link FROM ?n WHERE Lang = ?s ORDER BY IF(`Order`,-1000/`Order`,0) ASC', $menuDb, $this->lang->GetLang());
 			} else {
 				$this->items[$menuDb][$itemId] = $items = $this->db->getAll('SELECT Id, Title, Link FROM ?n WHERE ItemId = ?i ORDER BY IF(`Order`,-1000/`Order`,0) ASC', 
 					$menuDb, 
