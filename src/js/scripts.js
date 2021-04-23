@@ -244,8 +244,12 @@
 
 		// LANG LINKS
 		$('#mn-lang li>a').click(function(e) {
+			e.preventDefault();
+
 			var selectedLang = $(this).attr('data-lang');
 			setCookie('lang', selectedLang);
+
+			window.location.href = $(this).attr('href');
 		});
 
 		// FEEDBACK FORM
