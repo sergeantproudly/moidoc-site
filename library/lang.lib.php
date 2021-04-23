@@ -22,8 +22,11 @@ class Lang {
 	}
 
 	public function DetectLang() {
-		var_dump($_SESSION['lang']);
+		if (!$_POST['ajax']) {
+			var_dump($_SESSION['lang']);
 		var_dump($_COOKIE['lang']);
+		}
+		
 		if ($_SESSION['lang']) {
 			return $_SESSION['lang'];
 
