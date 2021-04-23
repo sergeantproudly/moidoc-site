@@ -27,7 +27,7 @@ class Lang {
 			$lang = $this->DetectLangByAcceptLanguage();
 			$checked = $this->CheckDomainByLang($lang);
 			if ($checked !== true) {
-				//__Redirect('https://' . $checked);
+				__Redirect('https://' . $checked);
 			}
 		}
 	}
