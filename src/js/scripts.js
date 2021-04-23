@@ -247,6 +247,7 @@
 			e.preventDefault();
 
 			var selectedLang = $(this).attr('data-lang');
+			var linkLang = $(this).attr('href');
 			setCookie('lang', selectedLang);
 			$.ajax({
 			    url: '/ajax--act-SetLang/',
@@ -254,7 +255,7 @@
 			    data: {'lang': selectedLang},
 			    success: function(response) {
 			        if (response == 'OK') {
-			        	window.location.href = $(this).attr('href');
+			        	window.location.href = linkLang;
 			        }
 			    },
 			    error: function(response) {
