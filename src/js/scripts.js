@@ -247,6 +247,8 @@
 			e.preventDefault();
 
 			var domain = $(this).attr('href');
+			var link = domain + '/ajax--act-SetLangSelected/';
+			/*
 			$.ajax({
 			    url: 'https://' + domain + '/ajax--act-SetLangSelected/',
 			    type: 'POST',
@@ -259,6 +261,15 @@
 			    	console.log(response);
 			    }
 			});
+			*/
+			//$.getJSON(link);
+			var script   = document.createElement('script');
+		    script.type  = 'text/javascript';
+		    script.async = true;
+		    script.src   = link;
+		    document.body.appendChild(script);
+
+		    window.location.href = domain;
 		});
 
 		// FEEDBACK FORM

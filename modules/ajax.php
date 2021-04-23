@@ -156,7 +156,7 @@ class ajax extends krn_abstract{
 
 	function SetLangSelected() {
 		if (setcookie("lang_selected_by_user", "1", time() + WEEK_IN_SEC*24)) {
-			return 'OK';
+			return '';
 		} else {
 			return 'ERROR';
 		}
