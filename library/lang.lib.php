@@ -8,6 +8,7 @@ class Lang {
 	protected $settings;
 
 	protected $langs = ['ru', 'en'];
+	protected $domains = ['moidoc.ru', 'moidoc.com'];
 	protected $default = 'ru';
 	protected $lang;
 
@@ -21,15 +22,17 @@ class Lang {
 	}
 
 	public function DetectLang() {
+		var_dump($_SESSION['lang']);
+		var_dump($_COOKIE['lang']);
 		if ($_SESSION['lang']) {
 			return $_SESSION['lang'];
 
 		} elseif ($_COOKIE['lang']) {
 			return $_COOKIE['lang'];
-			
+
 		} else {
 			$domain = $_SERVER['HTTP_HOST'];
-			if ($domain == 'moidoc.com') $this->default = 'en';
+			if ($domain == $domains[1]) $this->default = $this->langs[1];
 			return $this->DetectLangByAcceptLanguage();
 		}
 	}
@@ -61,6 +64,13 @@ class Lang {
                 return $s;
         }
         return $this->default;
+	}
+
+	public function CheckDomainByLang($lang) {
+		$k = array_search($lang, $this->langs);
+		$domain = $_SERVER['HTTP_HOST'];
+		if ($domain == $this->domains[$k]) return true;
+		else return $this->domains[$k];
 	}
 
 	public function GetLangs() {
