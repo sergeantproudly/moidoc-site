@@ -21,8 +21,12 @@ class Lang {
 	}
 
 	public function DetectLang() {
-		if ($_COOKIE['lang']) {
+		if ($_SESSION['lang']) {
+			return $_SESSION['lang'];
+
+		} elseif ($_COOKIE['lang']) {
 			return $_COOKIE['lang'];
+			
 		} else {
 			$domain = $_SERVER['HTTP_HOST'];
 			if ($domain == 'moidoc.com') $this->default = 'en';

@@ -248,8 +248,19 @@
 
 			var selectedLang = $(this).attr('data-lang');
 			setCookie('lang', selectedLang);
-
-			window.location.href = $(this).attr('href');
+			$.ajax({
+			    url: '/ajax--act-SetLang/',
+			    type: 'POST',
+			    data: {'lang': selectedLang},
+			    success: function(response) {
+			        if (response == 'OK') {
+			        	window.location.href = $(this).attr('href');
+			        }
+			    },
+			    error: function(response) {
+			    	console.log(response);
+			    }
+			});
 		});
 
 		// FEEDBACK FORM

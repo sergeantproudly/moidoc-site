@@ -154,6 +154,12 @@ class ajax extends krn_abstract{
 		return json_encode($json);
 	}
 
+	function SetLang() {
+		$lang = $_POST['lang'];
+		$_SESSION['lang'] = $lang;
+		return 'OK';
+	}
+
 }
 
 ?>
