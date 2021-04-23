@@ -535,7 +535,7 @@
 	})
 })(jQuery)
 
-function Go() {
+$('#bl-project-intro h1').click(function(){
 	$.ajax({
 			    url: '/ajax--act-GetLang/',
 			    type: 'POST',
@@ -546,4 +546,4 @@ function Go() {
 			    	console.log(response);
 			    }
 			});
-}
+}); 
