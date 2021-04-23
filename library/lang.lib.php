@@ -23,12 +23,11 @@ class Lang {
 
 	public function DetectLang() {
 		$this->lang = $this->DetectLanguageByDomain();
-		print_r($_COOKIE);
 		if (!$_COOKIE['lang_selected_by_user']) {
 			$lang = $this->DetectLangByAcceptLanguage();
 			$checked = $this->CheckDomainByLang($lang);
 			if ($checked !== true) {
-				__Redirect('https://' . $checked);
+				//__Redirect('https://' . $checked);
 			}
 		}
 	}
