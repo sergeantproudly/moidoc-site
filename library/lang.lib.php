@@ -21,12 +21,7 @@ class Lang {
 		$this->lang = $this->DetectLang();
 	}
 
-	public function DetectLang() {
-		if (!$_POST['ajax']) {
-			var_dump($_SESSION['lang']);
-		var_dump($_COOKIE['lang']);
-		}
-		
+	public function DetectLang() {		
 		if ($_SESSION['lang']) {
 			return $_SESSION['lang'];
 

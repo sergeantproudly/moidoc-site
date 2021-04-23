@@ -160,6 +160,10 @@ class ajax extends krn_abstract{
 		return 'OK';
 	}
 
+	function GetLang() {
+		return $_SESSION['lang'];
+	}
+
 }
 
 ?>
