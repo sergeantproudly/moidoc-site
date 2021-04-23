@@ -18,16 +18,16 @@ class Lang {
 		$this->db = $Params['Db']['Link'];
 		$this->settings = $Settings;
 
-		$this->lang = $this->DetectLang();
+		$this->DetectLang();
 	}
 
 	public function DetectLang() {
-		if (!$_COOKIE['lang_selected_by_user']) {			
-			$lang = $this->DetectLangByAcceptLanguage();
-			$this->lang = $lang;
+		$lang = $this->DetectLangByAcceptLanguage();
+		$this->lang = $lang;
+		if (!$_COOKIE['lang_selected_by_user']) {
 			$checked = $this->CheckDomainByLang($lang);
 			if ($checked !== true) {
-				__Redirect('https://' . $checked);
+				//__Redirect('https://' . $checked);
 			}
 		}
 	}
