@@ -21,17 +21,13 @@ class Lang {
 		$this->lang = $this->DetectLang();
 	}
 
-	public function DetectLang() {		
-		if ($_SESSION['lang']) {
-			return $_SESSION['lang'];
-
-		} elseif ($_COOKIE['lang']) {
-			return $_COOKIE['lang'];
-
-		} else {
-			$domain = $_SERVER['HTTP_HOST'];
-			if ($domain == $domains[1]) $this->default = $this->langs[1];
-			return $this->DetectLangByAcceptLanguage();
+	public function DetectLang() {
+		if (!$_COOKIE['lang_selected_by_user']) {			
+			$lang = $this->DetectLangByAcceptLanguage();
+			$checked = $this->CheckDomainByLang($lang);
+			if ($checked !== true) {
+				__Redirect('https://' . $checked);
+			}
 		}
 	}
 

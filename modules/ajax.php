@@ -154,10 +154,12 @@ class ajax extends krn_abstract{
 		return json_encode($json);
 	}
 
-	function SetLang() {
-		$lang = $_POST['lang'];
-		$_SESSION['lang'] = $lang;
-		return 'OK';
+	function SetLangSelected() {
+		if (setcookie("lang_selected_by_user", "1", time() + WEEK_IN_SEC*24)) {
+			return 'OK';
+		} else {
+			return 'ERROR';
+		}
 	}
 
 	function GetLang() {

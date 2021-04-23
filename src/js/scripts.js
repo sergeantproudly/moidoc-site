@@ -246,16 +246,13 @@
 		$('#mn-lang li>a').click(function(e) {
 			e.preventDefault();
 
-			var selectedLang = $(this).attr('data-lang');
-			var linkLang = $(this).attr('href');
-			setCookie('lang', selectedLang);
+			var domain = $(this).attr('href');
 			$.ajax({
-			    url: '/ajax--act-SetLang/',
+			    url: 'https://' + domain + '/ajax--act-SetLangSelected/',
 			    type: 'POST',
-			    data: {'lang': selectedLang},
 			    success: function(response) {
 			        if (response == 'OK') {
-			        	window.location.href = linkLang;
+			        	window.location.href = 'https://' + domain;
 			        }
 			    },
 			    error: function(response) {
@@ -534,16 +531,3 @@
 
 	})
 })(jQuery)
-
-$('#bl-project-intro h1').click(function(){
-	$.ajax({
-			    url: '/ajax--act-GetLang/',
-			    type: 'POST',
-			    success: function(response) {
-			        console.log(response);
-			    },
-			    error: function(response) {
-			    	console.log(response);
-			    }
-			});
-}); 
