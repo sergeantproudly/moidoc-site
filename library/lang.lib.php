@@ -24,6 +24,7 @@ class Lang {
 	public function DetectLang() {
 		if (!$_COOKIE['lang_selected_by_user']) {			
 			$lang = $this->DetectLangByAcceptLanguage();
+			$this->lang = $lang;
 			$checked = $this->CheckDomainByLang($lang);
 			if ($checked !== true) {
 				__Redirect('https://' . $checked);
