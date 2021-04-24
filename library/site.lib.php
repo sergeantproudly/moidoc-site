@@ -93,7 +93,7 @@
 		    	'<%PAGE_TITLE%>'			=> $siteTitle,
 		    	'<%SITE_TITLE%>'			=> $siteTitle,
 		    	'<%SITE_TITLE_ALT%>'		=> htmlspecialchars($siteTitle, ENT_QUOTES),
-		    	'<%SITE_URL%>'				=> $this->settings->GetSetting('SiteProtocol') . $this->settings->GetSetting('SiteDomain'),
+		    	'<%SITE_URL%>'				=> $this->settings->GetSetting('SiteProtocol') . $_SERVER['HTTP_HOST'],
 		    	'<%TEL%>'					=> $tel,
 		    	'<%TELLINK%>'				=> $tellink,
 		    	'&lt;%TEL%&gt;'				=> $tel,
