@@ -27,6 +27,7 @@
 		 	$this->db = $Params['Db']['Link'];
 
 		 	if ($_GET['p_code'] == 'set-lang') {
+		 		krnLoadLib('define');
 		 		setcookie('lang_selected_by_user', '1', time() + WEEK_IN_SEC*24, '/', $_SERVER['HTTP_HOST'], true);
 		 		$_COOKIE['lang_selected_by_user'] = 1;
 				__Redirect('/');
