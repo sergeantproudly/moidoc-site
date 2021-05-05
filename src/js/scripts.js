@@ -460,8 +460,12 @@
 		$('#bl-book form').find('input, textarea').on('input', function() {
 			$(this).removeClass('invalid');
 		});
-		$('#bl-book form').find('button, input:submit').click(function(e) {
-			$form = $(this).closest('form');
+
+		$('#bl-book form').submit(function(e) {
+			e.preventDefault();
+
+			var form = this;
+			$form = $(form);
 			$name = $form.find('input[name="name"]');
 			$email = $form.find('input[name="email"]');
 			$tel = $form.find('input[name="tel"]');
@@ -490,42 +494,40 @@
 				err = true;
 				$text.addClass('invalid');
 			}
-			if (err) {
-				e.preventDefault();
-				e.stopPropagation();
 
+			if (!err) {
+				var url = '/ajax--act-Feedback/';
+		        msgUnset(form);
+		        form.submit_btn.disabled = true;
+		        var waitNode = msgSetWait(form);
+
+		        $(form).append('<input type="hidden" name="capcha" value="' + navigator.userAgent + '"/>');
+
+		        $.ajax({
+		          	type : $(form).attr('method'),
+		          	url  : url,
+		          	data : $(form).serialize(),
+		          	dataType: 'json',
+		          	success: function (response) {
+		          		if (response.status == true) {
+		          			form.reset();
+							showModal('modal-done');
+
+			            	$(waitNode).remove();
+			            	form.submit_btn.disabled = false;
+		          		} else {
+		          			console.log(response.message);
+		          		}
+		            },
+		            error: function(response) {
+				    	console.log(response);
+				    }
+		        });
 			}
-		});
 
-		$('#bl-book form').submit(function(e) {
-			e.preventDefault();
+			return false;
 
-			var portalId = '7649479';
-			var formGuid = 'd77bce82-a24f-4d5a-9b14-17d71d598649';
-			var url = 'https://api.hsforms.com/submissions/v3/integration/submit/' + portalId + '/' + formGuid;
-			var fields = [
-				{
-					'name': 'firstname',
-					'value': $name.val()
-				},
-				{
-					'name': 'email',
-					'value': $email.val()
-				},
-				{
-					'name': 'phone',
-					'value': $tel.val()
-				},
-				{
-					'name': 'text',
-					'value': $text.val()
-				}
-			];
-			var json = {
-				'submittedAt': Date.now(),
-				'fields': fields
-			};
-
+	        /*
 			$.ajax({
 			    url: url,
 			    type: 'POST',
@@ -540,6 +542,7 @@
 			    	console.log(response);
 			    }
 			});
+			*/
 		});
 
 	})

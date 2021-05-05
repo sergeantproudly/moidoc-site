@@ -52,7 +52,8 @@ class ajax extends krn_abstract{
 		// проверка на спамбота
 		// основывается на сверки user agent-ов
 		if ($capcha == $_SERVER['HTTP_USER_AGENT']) {
-			if ($tel && $name && $email && $text) {				
+			if ($tel && $name && $email && $text) {	
+			if (!$code)	$code = 'feedback';
 				$form = $this->db->getRow('SELECT Title, SuccessHeader, Success FROM forms WHERE Code=?s', $code);				
 				$request = '';
 				if ($name) $request .= "Имя: $name\r\n";
