@@ -156,18 +156,49 @@ class ajax extends krn_abstract{
 	}
 
 	function Test() {
+		krnLoadLib('SendMailSmtpClass');
+
+		/*
 		global $Config;
-			$siteTitle = strtr(stGetSetting('SiteEmailTitle', $Config['Site']['Title']), array('«'=>'"','»'=>'"','—'=>'-'));
-			$siteEmail = stGetSetting('SiteEmail', $Config['Site']['Email']);
-			$adminTitle = 'Администратор';
-			$adminEmail = 'support@proudly.ru';
+		$siteTitle = strtr(stGetSetting('SiteEmailTitle', $Config['Site']['Title']), array('«'=>'"','»'=>'"','—'=>'-'));
+		$siteEmail = stGetSetting('SiteEmail', $Config['Site']['Email']);
+		$adminTitle = 'Администратор';
+		$adminEmail = 'support@proudly.ru';
 				
-			$letter['subject'] = 'Тест с сайта "'.$siteTitle.'"';
-			$letter['html'] = '<b>Тестовая заявка</b><br/><br/>';
-			$letter['html'] .= str_replace("\r\n", '<br/>', 'Это тестовое тело заявки');
-			$mail = new Mail();
-			var_dump($mail->SendMailFromSite($adminEmail, $letter['subject'], $letter['html']));
-			die();
+		$letter['subject'] = 'Тест с сайта "'.$siteTitle.'"';
+		$letter['html'] = '<b>Тестовая заявка</b><br/><br/>';
+		$letter['html'] .= str_replace("\r\n", '<br/>', 'Это тестовое тело заявки');
+		$mail = new Mail();
+		var_dump($mail->SendMailFromSite($adminEmail, $letter['subject'], $letter['html']));
+		*/
+
+		$mailSMTP = new SendMailSmtpClass('info@moidoc.com', 'MoiDoctor@2020!', 'smtp.gmail.com', 465, "utf-8");
+
+		// от кого
+		$from = array(
+			"Мой Доктор", // Имя отправителя
+			"info@moidoc.com" // почта отправителя
+		);
+		// кому отправка. Можно указывать несколько получателей через запятую
+		$to = 'support@proudly.ru';
+		
+		// добавляем файлы
+		/*
+		$mailSMTP->addFile("test.jpg");
+		$mailSMTP->addFile("test2.jpg");
+		$mailSMTP->addFile("test3.txt");
+		*/
+		
+		// отправляем письмо
+		$result =  $mailSMTP->send($to, 'Тестовая отправка', 'Добрый день! Это тестовая отправка', $from); 
+		
+		if($result === true){
+			echo "Done";
+		}else{
+			echo "Error: " . $result;
+		}
+
+		die();
 	}
 
 }
