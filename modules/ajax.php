@@ -172,7 +172,7 @@ class ajax extends krn_abstract{
 		var_dump($mail->SendMailFromSite($adminEmail, $letter['subject'], $letter['html']));
 		*/
 
-		$mailSMTP = new SendMailSmtpClass('info@moidoc.com', 'MoiDoctor@2020!', 'smtp.gmail.com', 465, "utf-8");
+		$mailSMTP = new SendMailSmtpClass('info@moidoc.com', 'MoiDoctor@2020!', 'smtp.moidoc.com', 465, "utf-8");
 
 		// от кого
 		$from = array(
