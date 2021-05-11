@@ -158,7 +158,7 @@ class ajax extends krn_abstract{
 	function Test() {
 		krnLoadLib('SendMailSmtpClass');
 
-		/*
+		
 		global $Config;
 		$siteTitle = strtr(stGetSetting('SiteEmailTitle', $Config['Site']['Title']), array('«'=>'"','»'=>'"','—'=>'-'));
 		$siteEmail = stGetSetting('SiteEmail', $Config['Site']['Email']);
@@ -170,8 +170,9 @@ class ajax extends krn_abstract{
 		$letter['html'] .= str_replace("\r\n", '<br/>', 'Это тестовое тело заявки');
 		$mail = new Mail();
 		var_dump($mail->SendMailFromSite($adminEmail, $letter['subject'], $letter['html']));
-		*/
+		
 
+		/*
 		$mailSMTP = new SendMailSmtpClass('info@moidoc.com', 'MoiDoctor@2020!', 'smtp.gmail.com', 465, "utf-8");
 
 		// от кого
@@ -182,13 +183,6 @@ class ajax extends krn_abstract{
 		// кому отправка. Можно указывать несколько получателей через запятую
 		$to = 'support@proudly.ru';
 		
-		// добавляем файлы
-		/*
-		$mailSMTP->addFile("test.jpg");
-		$mailSMTP->addFile("test2.jpg");
-		$mailSMTP->addFile("test3.txt");
-		*/
-		
 		// отправляем письмо
 		$result =  $mailSMTP->send($to, 'Тестовая отправка', 'Добрый день! Это тестовая отправка', $from); 
 		
@@ -197,6 +191,7 @@ class ajax extends krn_abstract{
 		}else{
 			echo "Error: " . $result;
 		}
+		*/
 
 		die();
 	}
